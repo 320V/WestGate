@@ -1,0 +1,28 @@
+.duyuru {
+  margin:0 auto;
+width:1200px;
+}
+.duyurubas {
+  width:125px;
+  height:40px;
+  float:left;
+  background-image: url(https://2.bp.blogspot.com/-v8Fy5Q41BaI/UcCLdeppfnI/AAAAAAAAAiM/dus5gdMceyI/s1600/duyuru_01.png);
+}
+.duyuruorta {
+  background-image: url(https://2.bp.blogspot.com/-5h9pPXCAJq4/UcCLdbfNHTI/AAAAAAAAAiQ/Xu13TrbLsoA/s1600/duyuru_02.png);
+  width:800px;
+  height:20px;
+  float:left;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0;
+  padding: 9px 10px 11px;
+  color:black;
+  text-shadow: 1px 1px white, 1px 1px #444;
+}
+.duyuruson {
+  background-image: url(https://3.bp.blogspot.com/-mQiqc9_YB5E/UcCLdumcv2I/AAAAAAAAAic/dhCdb-0Thko/s1600/duyuru_03.png);
+  width:43px;
+  height:40px;
+  float:left;
+}

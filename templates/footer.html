@@ -1,0 +1,90 @@
+{% load static %}
+
+<!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>West-Gate Hakkında</h4>
+                            {% for item in anahakkimizda %}
+                            <p> {{ item.ana_hakkimizda }}
+                                </p>
+                            {% endfor %}
+                            <ul>
+                                {% for item in sosyal_medya %}
+                                {% if item.facebook %}
+                                <li><a href="{{item.facebook}}"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.twitter %}
+                                <li><a href="{{item.twitter}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.linkedin %}
+                                <li><a href="{{item.linkedin}}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.google %}
+                                <li><a href="mailto:{{item.google}}"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.rss %}
+                                <li><a href="{{item.rss}}"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.pinterest %}
+                                <li><a href="{{item.pinterest}}"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if item.whatsapp %}
+                                <li><a href="https://api.whatsapp.com/send?phone={{item.whatsapp}}"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Hızlı Erişim</h4>
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000/">Ana Sayfa</a></li>
+                                <li><a href="http://127.0.0.1:8000/galeri/">Galeri</a></li>
+                                <li><a href="http://127.0.0.1:8000/duyurular/">Duyurular</a></li>
+                                <li><a href="http://127.0.0.1:8000/hakkimizda/">Hakkımızda</a></li>
+                                <li><a href="http://127.0.0.1:8000/iletisim">İletişim</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>İletişim Bilgileri</h4>
+                            <ul>
+                                <li>
+                                    {% for item in adres_bilgisi %}
+                                    <p><i class="fas fa-map-marker-alt"></i><a href=""></a>{{item.adres}}</p>
+                                    <li><a href="https://goo.gl/maps/tjTFeVYKUog61ELC7" target="_blank">Yol Tarifi Al</a></li>
+                                    {% endfor %}
+                                </li>
+                                <li>
+                                    {% for item in telefon_bilgileri %}
+                                    {% if item.yonetim_tel %}
+                                    <p><i class="fas fa-phone-square"></i>Telefon: <a href="tel:{{item.yonetim_tel}}">{{item.yonetim_tel}}</a></p>
+                                    {% endif %}
+                                    {% endfor %}
+                                </li>
+                                <li>
+                                    {% for item in mail_bilgileri %}
+                                    {% if item.yonetim_mail %}
+                                    <p><i class="fas fa-envelope"></i>E-mail: <a href="mailto:{{item.yonetim_mail}}">{{item.yonetim_mail}}</a></p>
+                                    {% endif %}
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">Tüm hakları saklıdır. &copy; 2021 <a href="http://127.0.0.1:8000/admin/"target="_blank" >West-Gate Resisdence</a> Design By: <a href="#">ASME YAZILIM</a></p>
+    </div>
+    <!-- End copyright  -->
+    </footer>
+    <!-- End Footer  -->

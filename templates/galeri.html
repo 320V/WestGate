@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  		<title>Highway - Free CSS Template</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fontAwesome.css' %}">
+        <link rel="stylesheet" href="{% static 'css/light-box.css' %}">
+        <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    </head>
+
+<body>
+    <div id="video-container">
+        <div class="video-overlay"></div>
+        {% for item in galeri_video %}
+        <div class="video-content">
+            <div class="inner">
+              <h1><em>{{item.baslik}}</em></h1>
+              <p>{{item.orta_baslik}}</p>
+              <p>{{item.alt_baslik}}</p>
+                <div class="scroll-icon">
+                    <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="{{item.kaydirma_rsm.url}}" alt=""></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% for item in galeri_video %}
+        <video autoplay="" loop="" muted>
+        	<source src="{{item.video.url}}" type="video/mp4" />
+        </video>
+        {% endfor %}
+    </div>
+
+    <div class="full-screen-portfolio" id="portfolio">
+        <div class="container-fluid">
+            {% for item in galeri_resimleri %}
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{item.rsm.url}}" data-lightbox="image-1"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>{{item.baslik}}</h1>
+                                <p>{{item.aciklama}}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="{{item.rsm.url}}">
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <script src="{% static 'js/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/jquery.superslides.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'js/inewsticker.js' %}"></script>
+    <script src="{% static 'js/images-loded.min.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/baguetteBox.min.js' %}"></script>
+    <script src="{% static 'js/form-validator.min.js' %}"></script>
+    <script src="{% static 'js/contact-form-script.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script id="_waudn6">var _wau = _wau || []; _wau.push(["tab", "buf3hmvu8l", "dn6", "bottom-right"]);</script>
+    <script async src="{% static 'js/sayac.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}

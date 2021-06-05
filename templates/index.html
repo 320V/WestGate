@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+{% for item in duyuru_bilgileri %}
+    #perde {
+	background-color:black;
+	opacity: 0.7;
+	-moz-opacity:0.70;
+	filter: alpha(opacity=70);
+	z-index: 20;
+	height: 100%;
+	width: 100%;
+	background-repeat:repeat;
+	position:fixed;
+	top: 0px;
+	left: 0px;
+}
+
+#duyuru {
+	z-index: 50;
+	position:absolute;
+	background-image: url({{item.duyuru_arkaplan_resmi}});
+	background-size: cover;
+	background-position: 50% 0;
+	width:530px;
+	height:auto;
+	left: 50%;
+	top: 50%;
+	margin-top: -185px;
+	margin-left: -275px;
+	border-radius:20px;
+	padding:20px;
+	-moz-box-shadow:inset 0 0 40px #fff;
+	-webkit-box-shadow: inset 0 0 40px #fff;
+	box-shadow: inset 0 0 10px #fff;
+}
+#duyuru p a{
+	color:#38b4e7;
+	text-decoration:none;
+	font-weight:bold;
+}
+#duyuru p{
+	text-align:left;
+	font:16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color:#FFFFFF;
+	text-shadow: #000000 2px 2px;
+}
+
+#duyuru h1{
+	font:20px Georgia, 'Times New Roman';
+	color: #F00000;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+	text-align:center;
+	text-shadow: #FFF 0.5px 0.5px;
+}
+
+#duyuru .kapat{
+	right:0;
+	top:0;
+	padding:1px;
+	font:9px  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align:center;
+	border-radius:3px;
+	z-index: 60;
+	position:absolute;
+	background-color:white;
+	border:1px #858585 solid;
+	margin:-12px -12px 0 0;
+	border-radius:10px;
+	color:#111;
+	width:15px;
+	height:15px;
+	cursor:pointer;
+}
+
+#duyuru .kapat:hover{
+	background-color:#CCC;
+	color:white;
+}
+
+#duyuru p .awlogo{
+	margin:15px;
+	border-right:1px #822820 dotted;
+	float:left;
+}
+{% endfor %}
+</style>
+
+<body >
+
+    <!-- Start Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            {% for item in buyuk_resim_bilgileri %}
+            <li class="text-center">
+                <img src="{{item.resim.url}}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 style = "font-family:Cursive,garamond,serif;font-size:72px;font-style:italic;" class="m-b-20"><strong>{{item.baslik}}</strong></h1>
+                            <p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" class="m-b-40">{{item.aciklama}}</p>
+                            {% if item.buton_txt %}
+                            <p><a class="btn hvr-hover" href="{{item.buton_url}}">{{item.buton_txt}}</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- End Slider -->
+
+    <!-- Map Start -->
+    <div id="google-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1530.9178134777242!2d32.6565255637437!3d39.8779196587228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d33930e33f3aa9%3A0xbcb1169ebf5b04a6!2sWEST%20GATE%20RESIDENCE!5e0!3m2!1str!2str!4v1622311977637!5m2!1str!2str" width=100% height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <!-- Map Ending -->
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            {% for item in instagram_galerisi %}
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{item.resim.url}}" alt="" />
+                    <div class="hov-in">
+                        <a href="{{item.resim_url}}"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+    <!-- Duyuru Başlangıç -->
+    {% for item in duyuru_bilgileri %}
+        <div id="perde"></div>
+        <div id="duyuru">
+        <div class="kapat" onclick="document.getElementById('duyuru').style.display = 'none';document.getElementById('perde').style.display = 'none';">X</div>
+        <h1>{{ item.duyuru_baslik }}</h1>
+        <p><br>{{ item.duyuru_text }}</u>
+        </div>
+    {% endfor %}
+    <!-- Duyuru Son -->
+
+    <div class="elfsight-app-c4092b75-87be-43fa-aba1-04476a6c4c9c"></div>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Multilingual Menu in Navbar Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+    </head>
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/jquery.superslides.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'js/inewsticker.js' %}"></script>
+    <script src="{% static 'js/bootsnav.js.' %}"></script>
+    <script src="{% static 'js/images-loded.min.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/baguetteBox.min.js' %}"></script>
+    <script src="{% static 'js/form-validator.min.js' %}"></script>
+    <script src="{% static 'js/contact-form-script.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script id="_waudn6">var _wau = _wau || []; _wau.push(["tab", "buf3hmvu8l", "dn6", "bottom-right"]);</script>
+    <script async src="{% static 'js/sayac.js' %}"></script>
+</body>
+</html>
+{% endblock %}

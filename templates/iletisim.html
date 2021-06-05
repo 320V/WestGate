@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <!-- Start Contact Us  -->
+    <div class="contact-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="contact-info-left">
+                        <h2>İletişim Kanallarımız</h2>
+                        <p>Soru veya sorunlarınız için; yönetim, halkla ilişkiler veya muhasebe birimlerimize ulaşmak için aşağıdaki kanalları kullanabilirsiniz.</p>
+                        <ul>
+                            <p>Telefon Numaralarımız:</p>
+                            {% for item in telefon_bilgileri %}
+                            {% if item.yonetim_tel %}
+                            <li><p><i class="fas fa-phone-square"></i>Yönetim: <a href="tel:{{item.yonetim_tel}}">{{item.yonetim_tel}}</a></p></li>
+                            {% endif %}
+                            {% if item.muhasebe_tel %}
+                            <li><p><i class="fas fa-phone-square"></i>Muhasebe: <a href="tel:{{item.muhasebe_tel}}">{{item.muhasebe_tel}}</a></p></li>
+                            {% endif %}
+                            {% if item.halklailiskiler_tel %}
+                            <li><p><i class="fas fa-phone-square"></i>Halkla İlişkiler: <a href="tel:{{item.halklailiskiler_tel}}">{{item.halklailiskiler_tel}}</a></p></li>
+                            {% endif %}
+                            {% endfor %}
+                            <p>Mail Adreslerimiz:</p>
+                            {% for item in mail_bilgileri %}
+                            {% if item.yonetim_mail %}
+                            <li><p><i class="fas fa-envelope"></i>Yönetim: <a href="mailto:{{item.yonetim_mail}}">{{item.yonetim_mail}}</a></p></li>
+                            {% endif %}
+                            {% if item.muhasebe_mail %}
+                            <li><p><i class="fas fa-envelope"></i>Muhasebe: <a href="mailto:{{item.muhasebe_mail}}">{{item.muhasebe_mail}}</a></p></li>
+                            {% endif %}
+                            {% if item.halklailiskiler_mail %}
+                            <li><p><i class="fas fa-envelope"></i>Halkla İlişkiler: <a href="mailto:{{item.halklailiskiler_mail}}">{{item.halklailiskiler_mail}}</a></p></li>
+                            {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12">
+                    <div class="contact-form-right">
+                        <h2>Geri Bildirimde Bulunun</h2>
+                        <p>Site üzerinden iletişime geçmek için formu doldurun. Cevaplama yapabilmemiz için mail adresinizi girdiğinizden emin olun.</p>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Adınız ve Soyadınız" required data-error="Lütfen adınızı girin.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="E-mail Adresiniz" id="email" class="form-control" name="name" required data-error="Lütfen cevap verebilmemiz için mail girin.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="subject" name="name" placeholder="Konu" required data-error="Lütfen bir başlık seçin.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="message" placeholder="Mesajınız" rows="4" data-error="Lütfen mesaj girin." required></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="submit-button text-center">
+                                        <button class="btn hvr-hover" id="submit" type="submit" >Mesaj Gönder</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Cart -->
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            {% for item in instagram_galerisi %}
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{item.resim.url}}" alt="" />
+                    <div class="hov-in">
+                        <a href="{{item.resim_url}}"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/jquery.superslides.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'js/inewsticker.js' %}"></script>
+    <script src="{% static 'js/bootsnav.js.' %}"></script>
+    <script src="{% static 'js/images-loded.min.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/baguetteBox.min.js' %}"></script>
+    <script src="{% static 'js/form-validator.min.js' %}"></script>
+    <script src="{% static 'js/contact-form-script.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script id="_waudn6">var _wau = _wau || []; _wau.push(["tab", "buf3hmvu8l", "dn6", "bottom-right"]);</script>
+    <script async src="{% static 'js/sayac.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}
